@@ -1,5 +1,3 @@
-# City_Temperature_Monitor
-
 City Temperature Monitoring (Kafka → Spark Structured Streaming)
 
 Monitoring temperatur miast w czasie rzeczywistym z detekcją anomalii i zapisem wyników do Parquet.
@@ -19,7 +17,7 @@ Metryki 1-minutowe (avg/std/count per miasto) z watermarkiem (tolerancja spóźn
 
 Output: Parquet + checkpointy (wznowienia, exactly-once na sinku).
 
-Architektura (skrót)
+Architektura 
 
 Producer ──► Kafka topic "city-temperatures" ──► Spark Structured Streaming
    ├─ OUT_OF_RANGE  ─► /data/output/anomalies_out_of_range_parquet/
@@ -46,7 +44,7 @@ mkdir -p export
 docker cp ${CID}:/data/output ./export/
 
 
-Jak to działa (w skrócie)
+Krótki opis działania
 
 OUT_OF_RANGE: filtr temperature < ANOMALY_MIN OR temperature > ANOMALY_MAX.
 
